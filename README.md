@@ -6,11 +6,11 @@ A responsive, multi-page website for RevenUX. Built with semantic HTML, CSS, and
 
 - `index.html` — home page and introduction
 - `services.html` — services and project process
-- `pricing.html` — three sample plans and interactive term comparison
+- `pricing.html` — three sample plans and an interactive service-term slider
 - `about.html` — team and approach
 - `contact.html` — project inquiry form
 
-Shared visual styles and interactions are in `styles.css` and `script.js`.
+Shared visual styles and interactions are in `styles.css` and `script.js`. The pricing slider supports keyboard input, step buttons, and direct selection of each labeled term.
 
 ## Run locally
 

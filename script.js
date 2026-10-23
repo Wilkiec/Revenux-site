@@ -44,6 +44,21 @@ function renderChart() {
   if (termLabel) termLabel.textContent = terms[selectedTerm].label;
   const termDiscount = document.getElementById("term-discount");
   if (termDiscount) termDiscount.textContent = terms[selectedTerm].description;
+  const sliderTermLabel = document.getElementById("slider-term-label");
+  if (sliderTermLabel) sliderTermLabel.textContent = terms[selectedTerm].label;
+  const selectedLabel = document.getElementById("selected-plan-label");
+  if (selectedLabel) selectedLabel.textContent = plan.name.toUpperCase();
+  const slider = document.getElementById("term-slider");
+  if (slider) {
+    slider.value = String(selectedTerm);
+    slider.setAttribute("aria-valuetext", terms[selectedTerm].label);
+    slider.style.setProperty("--slider-fill", `${selectedTerm / (terms.length - 1) * 100}%`);
+  }
+  document.querySelectorAll(".term-button").forEach((button, index) => {
+    const active = index === selectedTerm;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
 }
 
 function renderPriceCards() {
@@ -51,31 +66,48 @@ function renderPriceCards() {
   if (!container) return;
   container.replaceChildren(...plans.map((plan, index) => {
     const card = document.createElement("article");
-    card.className = `price-card${index === 1 ? " is-featured" : ""}`;
+    card.className = `price-card${index === selectedPlan ? " is-selected" : ""}`;
     const price = Math.round(plan.monthly * (1 - terms[selectedTerm].discount));
     const features = plan.features.map((feature) => `<li>${feature}</li>`).join("");
-    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} initial setup · sample pricing</div><a class="card-select" href="contact.html?plan=${index}">Talk about this plan <span>↗</span></a>`;
+    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} initial setup · sample pricing</div><button class="card-select" type="button" data-select-plan="${index}" aria-pressed="${index === selectedPlan}">${index === selectedPlan ? "Comparing this plan" : "Compare this plan"}<span>↗</span></button>`;
     return card;
   }));
+  const contactCta = document.getElementById("pricing-contact");
+  if (contactCta) contactCta.href = `contact.html?plan=${selectedPlan}`;
 }
 
 document.querySelectorAll(".term-button").forEach((button) => {
   button.addEventListener("click", () => {
     selectedTerm = Number(button.dataset.term);
-    document.querySelectorAll(".term-button").forEach((item, index) => {
-      const active = index === selectedTerm;
-      item.classList.toggle("is-active", active);
-      item.setAttribute("aria-pressed", String(active));
-    });
-    renderPriceCards();
     renderChart();
+    renderPriceCards();
   });
 });
 
-const planSelect = document.getElementById("tier-select");
-if (planSelect) {
-  planSelect.addEventListener("change", (event) => {
-    selectedPlan = Number(event.target.value);
+const termSlider = document.getElementById("term-slider");
+if (termSlider) termSlider.addEventListener("input", () => {
+  selectedTerm = Number(termSlider.value);
+  renderChart();
+  renderPriceCards();
+});
+document.getElementById("term-back")?.addEventListener("click", () => {
+  selectedTerm = Math.max(0, selectedTerm - 1);
+  renderChart();
+  renderPriceCards();
+});
+document.getElementById("term-forward")?.addEventListener("click", () => {
+  selectedTerm = Math.min(terms.length - 1, selectedTerm + 1);
+  renderChart();
+  renderPriceCards();
+});
+
+const priceCards = document.getElementById("price-cards");
+if (priceCards) {
+  priceCards.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-select-plan]");
+    if (!button) return;
+    selectedPlan = Number(button.dataset.selectPlan);
+    renderPriceCards();
     renderChart();
   });
   renderPriceCards();
