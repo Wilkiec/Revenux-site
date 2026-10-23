@@ -1,159 +1,135 @@
-const tiers = [
-  { name: "Essential Build", short: "Essential Build", pages: "6 custom pages", pageCount: 6, monthly: 80, setup: 500, features: ["Custom layout", "Mobile-ready", "Local SEO basics"], eyebrow: "A CLEAR START", title: "A polished first impression.", description: "The essential foundation: a clean, fast website built to explain what you do and make it easy for customers to get in touch." },
-  { name: "Growth Engine", short: "Growth Engine", pages: "12 custom pages", pageCount: 12, monthly: 150, setup: 800, features: ["Expanded services", "Conversion pages", "Analytics ready"], eyebrow: "ROOM TO GROW", title: "More room for every service.", description: "Give your core services their own space, with a stronger page structure that makes it easier for customers to find the right fit." },
-  { name: "Authority Platform", short: "Authority Platform", pages: "18 custom pages", pageCount: 18, monthly: 200, setup: 1000, features: ["Service-area pages", "Lead pathways", "Full integration"], eyebrow: "BUILT FOR MOMENTUM", title: "Show up across your market.", description: "Build a deeper local presence with dedicated service and location pages, thoughtful conversion paths, and room for useful integrations." },
-  { name: "Dominance Hub", short: "Dominance Hub", pages: "24 custom pages", pageCount: 24, monthly: 250, setup: 1200, features: ["Custom funnels", "Local landing pages", "Advanced UI"], eyebrow: "A BROADER FOOTPRINT", title: "Turn more visits into action.", description: "A larger site with custom landing pages and focused lead funnels, designed to support multiple services and local markets." },
-  { name: "Enterprise Ecosystem", short: "Enterprise Ecosystem", pages: "Scope to fit", pageCount: null, monthly: 300, setup: 1500, features: ["Bespoke structure", "Custom workflows", "Advanced integrations"], eyebrow: "TAILORED TO YOUR NEEDS", title: "A digital system built around you.", description: "A bespoke platform for complex operations, customer journeys, and integrations. Final scope and deliverables are agreed together." },
-];
+document.documentElement.classList.add("js");
 
+const plans = [
+  { name: "Essential Build", pages: "Up to 6 custom pages", monthly: 80, setup: 500, label: "A CLEAR START", description: "A polished foundation for businesses ready to look established online and make it easy for customers to get in touch.", features: ["Custom website design", "Mobile-ready pages", "Local SEO foundation", "Contact and lead pathways"] },
+  { name: "Growth Engine", pages: "12–18 tailored pages", monthly: 200, setup: 1000, label: "ROOM TO GROW", description: "A deeper service presence with focused pages and conversion paths to support a growing local business.", features: ["Everything in Essential", "Expanded service pages", "Service-area structure", "Analytics-ready setup"] },
+  { name: "Authority Platform", pages: "Bespoke scope", monthly: 300, setup: 1500, label: "BUILT FOR MOMENTUM", description: "A custom digital platform for established teams with more services, markets, and workflows to support.", features: ["Everything in Growth", "Custom page architecture", "Advanced integrations", "Tailored lead journeys"] },
+];
 const terms = [
   { label: "1-year term", discount: 0, description: "Base monthly rates" },
-  { label: "3-year term", discount: 0.10, description: "10% sample rate reduction" },
-  { label: "5-year term", discount: 0.20, description: "20% sample rate reduction" },
-  { label: "10-year term", discount: 0.30, description: "30% sample rate reduction" },
+  { label: "3-year term", discount: 0.10, description: "10% illustrative rate reduction" },
+  { label: "5-year term", discount: 0.20, description: "20% illustrative rate reduction" },
+  { label: "10-year term", discount: 0.30, description: "30% illustrative rate reduction" },
 ];
-
 let selectedTerm = 0;
-let selectedTier = 0;
+let selectedPlan = 0;
 const money = (value) => `$${Math.round(value).toLocaleString("en-US")}`;
 
-function updateShowcase(index) {
-  const tier = tiers[index];
-  document.querySelectorAll(".tier-option").forEach((button, buttonIndex) => {
-    const active = buttonIndex === index;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-selected", String(active));
-  });
-  const panel = document.getElementById("tier-panel");
-  panel.setAttribute("aria-labelledby", `tier-tab-${index + 1}`);
-  document.getElementById("showcase-tag").textContent = tier.short.toUpperCase();
-  document.getElementById("showcase-eyebrow").textContent = tier.eyebrow;
-  document.getElementById("showcase-title").textContent = tier.title;
-  document.getElementById("showcase-description").textContent = tier.description;
-  document.getElementById("showcase-pages").textContent = tier.pages.toUpperCase();
-  document.getElementById("showcase-features").replaceChildren(...tier.features.map((feature) => {
-    const tag = document.createElement("span");
-    tag.textContent = feature;
-    return tag;
-  }));
-}
-
-function costAtYear(tier, termIndex, year) {
-  const term = terms[termIndex];
-  const monthly = tier.monthly * (1 - term.discount);
-  return tier.setup + monthly * 12 * year;
+function costAtYear(plan, termIndex, year) {
+  return plan.setup + plan.monthly * (1 - terms[termIndex].discount) * 12 * year;
 }
 
 function renderChart() {
-  const tier = tiers[selectedTier];
-  const width = 620;
-  const height = 214;
-  const pad = { top: 13, right: 11, bottom: 26, left: 48 };
-  const plotW = width - pad.left - pad.right;
-  const plotH = height - pad.top - pad.bottom;
-  const baseEnd = costAtYear(tier, 0, 10);
-  const selectedEnd = costAtYear(tier, selectedTerm, 10);
-  const max = Math.ceil(Math.max(baseEnd, selectedEnd) / 5000) * 5000 || 1000;
-  const x = (year) => pad.left + (year / 10) * plotW;
-  const y = (cost) => pad.top + plotH - (cost / max) * plotH;
-  const line = (term) => Array.from({ length: 11 }, (_, year) => `${year ? "L" : "M"}${x(year).toFixed(1)},${y(costAtYear(tier, term, year)).toFixed(1)}`).join(" ");
-  const ticks = Array.from({ length: 5 }, (_, i) => max * i / 4);
-  const grid = ticks.map((tick) => `<g><line x1="${pad.left}" y1="${y(tick)}" x2="${width - pad.right}" y2="${y(tick)}" stroke="#353b34" stroke-width="1"/><text x="${pad.left - 8}" y="${y(tick) + 3}" text-anchor="end" fill="#858d82" font-size="9" font-family="DM Mono, monospace">${tick === 0 ? "$0" : `$${Math.round(tick / 1000)}k`}</text></g>`).join("");
-  const yearLabels = Array.from({ length: 6 }, (_, i) => {
-    const year = i * 2;
-    return `<text x="${x(year)}" y="${height - 5}" text-anchor="middle" fill="#858d82" font-size="9" font-family="DM Mono, monospace">${year}</text>`;
-  }).join("");
-  const svg = `<svg viewBox="0 0 ${width} ${height}" role="presentation" aria-hidden="true"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f28c63" stop-opacity=".16"/><stop offset="100%" stop-color="#f28c63" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${line(0)} L${x(10)},${height - pad.bottom} L${x(0)},${height - pad.bottom} Z" fill="url(#area)"/><path d="${line(0)}" fill="none" stroke="#858b82" stroke-width="2" stroke-dasharray="5 5"/><path d="${line(selectedTerm)}" fill="none" stroke="#f28c63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${yearLabels}<circle cx="${x(10)}" cy="${y(selectedEnd)}" r="4" fill="#f28c63" stroke="#1b1e1b" stroke-width="2"/></svg>`;
   const chart = document.getElementById("cost-chart");
-  chart.innerHTML = svg;
-  chart.setAttribute("aria-label", `10-year cumulative cost comparison. The selected ${terms[selectedTerm].label} costs ${money(selectedEnd)} including setup. The 1-year rate costs ${money(baseEnd)} including setup.`);
-  document.getElementById("savings-value").textContent = money(baseEnd - selectedEnd);
-  document.getElementById("term-label").textContent = terms[selectedTerm].label;
-  document.getElementById("term-discount").textContent = terms[selectedTerm].description;
-  document.querySelectorAll(".term-button").forEach((button, index) => {
-    const active = index === selectedTerm;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
+  if (!chart) return;
+  const plan = plans[selectedPlan];
+  const width = 620, height = 214;
+  const pad = { top: 13, right: 11, bottom: 26, left: 48 };
+  const plotW = width - pad.left - pad.right, plotH = height - pad.top - pad.bottom;
+  const baseEnd = costAtYear(plan, 0, 10), selectedEnd = costAtYear(plan, selectedTerm, 10);
+  const max = Math.ceil(Math.max(baseEnd, selectedEnd) / 5000) * 5000 || 1000;
+  const x = (year) => pad.left + year / 10 * plotW;
+  const y = (cost) => pad.top + plotH - cost / max * plotH;
+  const line = (term) => Array.from({ length: 11 }, (_, year) => `${year ? "L" : "M"}${x(year).toFixed(1)},${y(costAtYear(plan, term, year)).toFixed(1)}`).join(" ");
+  const grid = Array.from({ length: 5 }, (_, i) => {
+    const tick = max * i / 4;
+    return `<g><line x1="${pad.left}" y1="${y(tick)}" x2="${width - pad.right}" y2="${y(tick)}" stroke="#353b34"/><text x="${pad.left - 8}" y="${y(tick) + 3}" text-anchor="end" fill="#858d82" font-size="9" font-family="DM Mono, monospace">${tick === 0 ? "$0" : `$${Math.round(tick / 1000)}k`}</text></g>`;
+  }).join("");
+  const labels = Array.from({ length: 6 }, (_, i) => `<text x="${x(i * 2)}" y="${height - 5}" text-anchor="middle" fill="#858d82" font-size="9" font-family="DM Mono, monospace">${i * 2}</text>`).join("");
+  chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="presentation" aria-hidden="true"><defs><linearGradient id="chart-area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f28c63" stop-opacity=".16"/><stop offset="100%" stop-color="#f28c63" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${line(0)} L${x(10)},${height - pad.bottom} L${x(0)},${height - pad.bottom} Z" fill="url(#chart-area)"/><path d="${line(0)}" fill="none" stroke="#858b82" stroke-width="2" stroke-dasharray="5 5"/><path d="${line(selectedTerm)}" fill="none" stroke="#f28c63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${labels}<circle cx="${x(10)}" cy="${y(selectedEnd)}" r="4" fill="#f28c63" stroke="#1b1e1b" stroke-width="2"/></svg>`;
+  chart.setAttribute("aria-label", `10-year cumulative cost comparison for ${plan.name}. Selected term ${terms[selectedTerm].label}: ${money(selectedEnd)} including setup. One-year rate: ${money(baseEnd)} including setup.`);
+  const savings = document.getElementById("savings-value");
+  if (savings) savings.textContent = money(baseEnd - selectedEnd);
+  const termLabel = document.getElementById("term-label");
+  if (termLabel) termLabel.textContent = terms[selectedTerm].label;
+  const termDiscount = document.getElementById("term-discount");
+  if (termDiscount) termDiscount.textContent = terms[selectedTerm].description;
 }
 
 function renderPriceCards() {
   const container = document.getElementById("price-cards");
-  container.replaceChildren(...tiers.map((tier, index) => {
+  if (!container) return;
+  container.replaceChildren(...plans.map((plan, index) => {
     const card = document.createElement("article");
-    card.className = `price-card${index === selectedTier ? " is-highlighted" : ""}`;
-    const termPrice = Math.round(tier.monthly * (1 - terms[selectedTerm].discount));
-    card.innerHTML = `<span class="eyebrow">TIER ${index + 1}</span><h3>${tier.name}</h3><p class="card-pages">${tier.pages} · ${tier.features[0]}</p><div class="card-price">${money(termPrice)}<small> / month</small></div><div class="card-setup">${money(tier.setup)} initial setup</div><button class="card-select" type="button" data-select-tier="${index}" aria-pressed="${index === selectedTier}">${index === selectedTier ? "Selected build" : "Compare this build"}</button>`;
+    card.className = `price-card${index === 1 ? " is-featured" : ""}`;
+    const price = Math.round(plan.monthly * (1 - terms[selectedTerm].discount));
+    const features = plan.features.map((feature) => `<li>${feature}</li>`).join("");
+    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} initial setup · sample pricing</div><a class="card-select" href="contact.html?plan=${index}">Talk about this plan <span>↗</span></a>`;
     return card;
   }));
 }
 
-function updatePricing() {
-  const select = document.getElementById("tier-select");
-  select.value = String(selectedTier);
-  renderChart();
-  renderPriceCards();
-}
-
-document.querySelectorAll(".tier-option").forEach((button) => {
-  button.addEventListener("click", () => updateShowcase(Number(button.dataset.tier) - 1));
-  button.addEventListener("keydown", (event) => {
-    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
-    event.preventDefault();
-    const current = Number(button.dataset.tier) - 1;
-    const next = event.key === "Home" ? 0 : event.key === "End" ? tiers.length - 1 : (current + (event.key === "ArrowDown" ? 1 : tiers.length - 1)) % tiers.length;
-    document.querySelector(`[data-tier="${next + 1}"]`).focus();
-    updateShowcase(next);
-  });
-});
-
 document.querySelectorAll(".term-button").forEach((button) => {
   button.addEventListener("click", () => {
     selectedTerm = Number(button.dataset.term);
-    updatePricing();
+    document.querySelectorAll(".term-button").forEach((item, index) => {
+      const active = index === selectedTerm;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    renderPriceCards();
+    renderChart();
   });
 });
 
-document.getElementById("tier-select").addEventListener("change", (event) => {
-  selectedTier = Number(event.target.value);
-  updatePricing();
-});
-
-document.getElementById("price-cards").addEventListener("click", (event) => {
-  const button = event.target.closest("[data-select-tier]");
-  if (!button) return;
-  selectedTier = Number(button.dataset.selectTier);
-  updatePricing();
-  document.getElementById("tier-select").focus({ preventScroll: true });
-});
+const planSelect = document.getElementById("tier-select");
+if (planSelect) {
+  planSelect.addEventListener("change", (event) => {
+    selectedPlan = Number(event.target.value);
+    renderChart();
+  });
+  renderPriceCards();
+  renderChart();
+}
 
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".primary-nav");
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
-  navigation.classList.toggle("is-open", !isOpen);
-});
-navigation.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
+if (menuButton && navigation) {
+  menuButton.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+    navigation.classList.toggle("is-open", !isOpen);
+  });
+  navigation.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.setAttribute("aria-label", "Open menu");
     navigation.classList.remove("is-open");
-  }
-});
+  });
+}
 
-document.getElementById("contact-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!event.currentTarget.reportValidity()) return;
-  const data = new FormData(event.currentTarget);
-  const subject = encodeURIComponent(`RevenUX website inquiry — ${data.get("business")}`);
-  const body = encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nBusiness: ${data.get("business")}\n\nProject details:\n${data.get("project") || "Not provided"}`);
-  // Replace this address with your preferred inbox before launch.
-  window.location.href = `mailto:hello@revenuxdesign.com?subject=${subject}&body=${body}`;
-  document.getElementById("form-status").textContent = "Your email draft is ready. Review it and press Send in your email app.";
-});
+const currentPage = document.body.dataset.page;
+const currentLink = document.querySelector(`[data-nav="${currentPage}"]`);
+if (currentLink) currentLink.setAttribute("aria-current", "page");
+document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
 
-document.getElementById("year").textContent = new Date().getFullYear();
-updateShowcase(0);
-updatePricing();
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
+  if (plan !== null && plans[Number(plan)]) document.getElementById("plan").value = plans[Number(plan)].name;
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+    const data = new FormData(contactForm);
+    const subject = encodeURIComponent(`RevenUX website inquiry — ${data.get("business")}`);
+    const body = encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nBusiness: ${data.get("business")}\nPlan: ${data.get("plan")}\n\nProject details:\n${data.get("project") || "Not provided"}`);
+    document.getElementById("form-status").textContent = "Your email draft is ready. Review it and press Send in your email app.";
+    window.location.href = `mailto:hello@revenuxdesign.com?subject=${subject}&body=${body}`;
+  });
+}
+
+const reveals = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver((entries, instance) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      instance.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+  reveals.forEach((element) => observer.observe(element));
+} else {
+  reveals.forEach((element) => element.classList.add("is-visible"));
+}
