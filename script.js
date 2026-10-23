@@ -5,6 +5,7 @@ const plans = [
   { name: "Growth Engine", pages: "12–18 tailored pages", monthly: 200, setup: 1000, label: "ROOM TO GROW", description: "A deeper service presence with focused pages and conversion paths to support a growing local business.", features: ["Everything in Essential", "Expanded service pages", "Service-area structure", "Analytics-ready setup"] },
   { name: "Authority Platform", pages: "Bespoke scope", monthly: 300, setup: 1500, label: "BUILT FOR MOMENTUM", description: "A custom digital platform for established teams with more services, markets, and workflows to support.", features: ["Everything in Growth", "Custom page architecture", "Advanced integrations", "Tailored lead journeys"] },
 ];
+const chartMax = Math.ceil(Math.max(...plans.map((plan) => plan.setup + plan.monthly * 12 * 10)) / 5000) * 5000 || 1000;
 const terms = [
   { label: "1-year term", discount: 0, description: "Base monthly rates" },
   { label: "3-year term", discount: 0.10, description: "10% illustrative rate reduction" },
@@ -27,7 +28,7 @@ function renderChart() {
   const pad = { top: 13, right: 11, bottom: 26, left: 48 };
   const plotW = width - pad.left - pad.right, plotH = height - pad.top - pad.bottom;
   const baseEnd = costAtYear(plan, 0, 10), selectedEnd = costAtYear(plan, selectedTerm, 10);
-  const max = Math.ceil(Math.max(baseEnd, selectedEnd) / 5000) * 5000 || 1000;
+  const max = chartMax;
   const x = (year) => pad.left + year / 10 * plotW;
   const y = (cost) => pad.top + plotH - cost / max * plotH;
   const line = (term) => Array.from({ length: 11 }, (_, year) => `${year ? "L" : "M"}${x(year).toFixed(1)},${y(costAtYear(plan, term, year)).toFixed(1)}`).join(" ");
