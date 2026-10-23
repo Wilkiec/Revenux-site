@@ -67,10 +67,26 @@ function renderPriceCards() {
   container.replaceChildren(...plans.map((plan, index) => {
     const card = document.createElement("article");
     card.className = `price-card${index === selectedPlan ? " is-selected" : ""}`;
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-pressed", String(index === selectedPlan));
+    card.setAttribute("aria-label", `Select ${plan.name} and update the comparison graphic`);
     card.dataset.planCard = String(index);
     const price = Math.round(plan.monthly * (1 - terms[selectedTerm].discount));
     const features = plan.features.map((feature) => `<li>${feature}</li>`).join("");
-    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} initial setup · sample pricing</div><button class="card-select" type="button" aria-pressed="${index === selectedPlan}">${index === selectedPlan ? "Selected for graphic" : "Select this tier"}<span>↗</span></button>`;
+    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} initial setup · sample pricing</div><span class="card-select" aria-hidden="true">${index === selectedPlan ? "Selected for graphic" : "Select this tier"}<span>↗</span></span>`;
+    const select = () => {
+      selectedPlan = index;
+      renderPriceCards();
+      renderChart();
+      document.querySelector(`[data-plan-card="${index}"]`)?.focus({ preventScroll: true });
+    };
+    card.addEventListener("click", select);
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      select();
+    });
     return card;
   }));
   const contactCta = document.getElementById("pricing-contact");
@@ -104,13 +120,6 @@ document.getElementById("term-forward")?.addEventListener("click", () => {
 
 const priceCards = document.getElementById("price-cards");
 if (priceCards) {
-  priceCards.addEventListener("click", (event) => {
-    const card = event.target.closest(".price-card");
-    if (!card) return;
-    selectedPlan = Number(card.dataset.planCard);
-    renderPriceCards();
-    renderChart();
-  });
   renderPriceCards();
   renderChart();
 }
