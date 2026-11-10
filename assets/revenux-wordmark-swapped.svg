@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260" role="img" aria-labelledby="title desc">
+  <title id="title">RevenUX Web Leasing &amp; Design</title>
+  <desc id="desc">RevenUX wordmark with Reven in deep red and UX in space-gray blue.</desc>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="0" y="142" fill="#c62835" font-size="142" letter-spacing="-7">Reven</text>
+    <text x="397" y="142" fill="#173c58" font-size="142" letter-spacing="-7">UX</text>
+    <rect x="3" y="176" width="646" height="4" rx="2" fill="#c62835" opacity=".92"/>
+    <text x="5" y="226" fill="#667784" font-size="20" letter-spacing="5">WEB LEASING &amp; DESIGN</text>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">RevenUX red monogram</title>
+  <desc id="desc">A single-color red interlocking R, U, and X monogram.</desc>
+  <g fill="none" stroke="#c62835" stroke-width="78" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M210 515V190H450C560 190 560 360 450 360H210M450 360L820 760"/>
+    <path d="M210 415V570C210 700 315 780 435 780C505 780 560 730 600 640C650 530 720 360 820 190"/>
+  </g>
+</svg>
