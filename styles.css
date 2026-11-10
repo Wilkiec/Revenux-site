@@ -1844,3 +1844,105 @@ body{
     grid-template-columns:repeat(5,minmax(0,1fr));
   }
 }
+
+
+/* Homepage services: open editorial layout */
+.home-services{
+  background:#fffdf8!important;
+}
+.home-services .section-heading{
+  margin-bottom:42px!important;
+}
+.home-services .section-heading h2{
+  max-width:720px;
+}
+.home-services .heading-row>p{
+  max-width:390px;
+}
+.home-services .service-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid #d4dde4!important;
+  border-bottom:1px solid #d4dde4!important;
+  background:transparent!important;
+}
+.home-services .service-card{
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  padding:28px 30px 28px 0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.home-services .service-card + .service-card{
+  padding-left:30px!important;
+  border-left:1px solid #d4dde4!important;
+}
+.home-services .service-card:hover{
+  border-color:#d4dde4!important;
+}
+.home-services .service-icon{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  margin:0 0 30px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  color:#c62835!important;
+  font:600 12px/1 var(--mono)!important;
+  letter-spacing:.06em;
+}
+.home-services .service-card h3{
+  margin:0 0 11px!important;
+  color:#111111!important;
+  font:650 22px/1.18 var(--display)!important;
+  letter-spacing:-.7px;
+}
+.home-services .service-card p{
+  max-width:310px;
+  margin:0!important;
+  color:#64737e!important;
+  font-size:12px!important;
+  line-height:1.75!important;
+}
+.home-services .service-card .text-link{
+  align-self:flex-start;
+  margin-top:28px!important;
+  padding-top:18px;
+  border-top:1px solid #d4dde4;
+  color:#173c58!important;
+  font-size:12px!important;
+}
+.home-services .service-card .text-link span{
+  color:#c62835!important;
+}
+@media(max-width:720px){
+  .home-services .section-heading{
+    margin-bottom:30px!important;
+  }
+  .home-services .service-grid{
+    grid-template-columns:1fr;
+  }
+  .home-services .service-card,
+  .home-services .service-card + .service-card{
+    padding:24px 0!important;
+    border-left:0!important;
+    border-bottom:1px solid #d4dde4!important;
+  }
+  .home-services .service-card:last-child{
+    border-bottom:0!important;
+  }
+  .home-services .service-icon{
+    margin-bottom:20px!important;
+  }
+  .home-services .service-card .text-link{
+    margin-top:21px!important;
+    padding-top:0!important;
+    border-top:0!important;
+  }
+}
