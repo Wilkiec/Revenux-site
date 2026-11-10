@@ -398,3 +398,62 @@ body{background:#fff!important;color:var(--text)!important}
     #263f52 100%
   )!important;
 }
+
+
+/* Solid slate background accents — no ombre */
+.hero,.page-hero,.home-services,.process-section,.values-section,.pricing-section{
+  background:#ffffff!important;
+}
+.intro-strip{
+  background:#263f52!important;
+  border-block-color:#263f52!important;
+}
+.intro-strip .strip-inner p,
+.intro-strip .strip-inner strong{
+  color:#ffffff!important;
+}
+.service-detail,.about-section,.contact-section{
+  background:#f2f5f7!important;
+  border-color:#e1e6ea!important;
+}
+.home-cta,.simple-cta{
+  background:#263f52!important;
+}
+.cta-panel{
+  background:#ffffff!important;
+  border-color:#dbe2e7!important;
+}
+.site-footer{
+  background:#263f52!important;
+  border-top-color:#263f52!important;
+  color:#ffffff!important;
+}
+.site-footer .brand,
+.site-footer .brand small,
+.site-footer .footer-links,
+.site-footer .footer-links a,
+.site-footer .footer-bottom,
+.site-footer .back-top{
+  color:#ffffff!important;
+}
+.site-footer .brand-accent,
+.site-footer .footer-links a:hover,
+.site-footer .back-top:hover{
+  color:var(--accent)!important;
+}
+.site-footer .footer-bottom{
+  border-color:rgba(255,255,255,.2)!important;
+}
+.hero-bottom{
+  color:var(--muted)!important;
+}
+.hero-line{
+  background:var(--line)!important;
+}
+.hero-bottom .eyebrow,
+.hero-bottom span{
+  color:var(--muted)!important;
+}
+.preview-hero{
+  background:#edf2f5!important;
+}
