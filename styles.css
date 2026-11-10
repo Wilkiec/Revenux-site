@@ -348,3 +348,29 @@ body{background:#fff!important;color:var(--text)!important}
 .hero-bottom .eyebrow,.hero-bottom span{
   color:rgba(255,255,255,.84)!important;
 }
+
+
+/* Expand and soften blue-gray ombre */
+.hero,.page-hero{
+  background:linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 18%,
+    #f8fafb 36%,
+    #eaf0f4 54%,
+    #d2dde4 70%,
+    #a6b7c2 84%,
+    #617484 100%
+  )!important;
+}
+.home-cta,.simple-cta{
+  background:linear-gradient(
+    180deg,
+    #eef2f5 0%,
+    #e3ebf0 24%,
+    #cbd7df 48%,
+    #a5b7c2 70%,
+    #7f93a1 86%,
+    #617484 100%
+  )!important;
+}
