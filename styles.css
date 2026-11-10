@@ -920,3 +920,148 @@ body{background:#fff!important;color:var(--text)!important}
   .detail-card{padding-block:22px}
   .process-step{padding-block:22px 0}
 }
+
+/* Iron Man-inspired cream, navy, blue, and red theme */
+:root{
+  --bg:#fffdf8!important;
+  --bg-soft:#faf1dc!important;
+  --panel:#fffaf0!important;
+  --line:#d9d5cb!important;
+  --text:#142333!important;
+  --muted:#667582!important;
+  --soft:#8b969e!important;
+  --accent:#c62835!important;
+  --accent-hi:#e0444e!important;
+  --green:#c62835!important;
+  --lime-soft:#fae8e9!important;
+  --slate:#173c58!important;
+  --slate-soft:#e6eef3!important;
+}
+body{
+  background:var(--bg)!important;
+  color:var(--text)!important;
+}
+.site-header{
+  background:rgba(255,253,248,.95)!important;
+  border-bottom:1px solid var(--line)!important;
+}
+.primary-nav{color:var(--muted)!important}
+.primary-nav>a:not(.nav-cta){color:var(--muted)!important}
+.primary-nav>a:not(.nav-cta):hover,
+.primary-nav>a[aria-current=page]:not(.nav-cta){
+  background:transparent!important;
+  color:var(--navy,var(--slate))!important;
+}
+.primary-nav>a[aria-current=page]:not(.nav-cta):after{
+  background:var(--accent)!important;
+}
+.nav-cta{
+  background:var(--slate)!important;
+  border-color:var(--slate)!important;
+  color:#ffffff!important;
+}
+.nav-cta span{color:#ffffff!important}
+.hero,.home-services,.pricing-section,.process-section{
+  background:#fffdf8!important;
+}
+.page-hero,.pricing-hero,.about-hero,
+.service-detail,.about-section,.contact-section{
+  background:var(--bg-soft)!important;
+  border-color:var(--line)!important;
+}
+.intro-strip,.home-cta,.simple-cta,.site-footer{
+  background:var(--slate)!important;
+}
+.intro-strip .strip-inner p,
+.intro-strip .strip-inner strong,
+.intro-strip .text-link,
+.site-footer,
+.site-footer a,
+.site-footer p{
+  color:#ffffff!important;
+}
+.site-footer .footer-bottom{border-color:rgba(255,255,255,.22)!important}
+.site-footer a:hover,
+.site-footer .back-top:hover{color:#f07a80!important}
+.eyebrow,.field-label{color:var(--slate)!important}
+.button-primary{
+  background:var(--accent)!important;
+  border-color:var(--accent)!important;
+  color:#ffffff!important;
+  box-shadow:0 8px 22px rgba(198,40,53,.18)!important;
+}
+.button-primary:hover{
+  background:var(--accent-hi)!important;
+  border-color:var(--accent-hi)!important;
+}
+.text-link{color:var(--slate)!important}
+.text-link span{color:var(--accent)!important}
+.status-dot,.caption-live i{
+  background:var(--accent)!important;
+  box-shadow:0 0 12px rgba(198,40,53,.35)!important;
+}
+.service-card,.detail-card,.founder-card,.founder-card-accent,
+.term-panel,.pricing-control,.pricing-chart-wrap,.contact-form,.price-card{
+  border-color:var(--line)!important;
+  background:#ffffff!important;
+  box-shadow:none!important;
+}
+.service-card:hover,.detail-card:hover,.founder-card:hover,.price-card:hover{
+  border-color:#c9878c!important;
+}
+.service-icon,.founder-initials,.caption-mark,.note-icon,.term-symbol{
+  border-color:#c7d5df!important;
+  background:var(--slate-soft)!important;
+  color:var(--slate)!important;
+}
+.service-icon,.detail-number,.founder-footer span:last-child,
+.card-feature-list li:before,
+.detail-card li:before,
+.value-row>span:first-child{
+  color:var(--accent)!important;
+}
+.preview-logo b{background:var(--accent)!important;color:#ffffff!important}
+.preview-call,.preview-button{
+  background:var(--slate)!important;
+  color:#ffffff!important;
+}
+.term-button:hover,.term-button.is-active{
+  background:var(--accent)!important;
+  color:#ffffff!important;
+}
+.slider-step:hover{
+  border-color:var(--accent)!important;
+  background:var(--lime-soft)!important;
+  color:var(--accent)!important;
+}
+#term-slider{
+  background:linear-gradient(90deg,var(--accent) 0 var(--slider-fill,0%),#dfe5e8 var(--slider-fill,0%) 100%)!important;
+}
+#term-slider::-webkit-slider-thumb{
+  background:var(--accent)!important;
+  box-shadow:0 0 0 4px rgba(198,40,53,.22)!important;
+}
+#term-slider::-moz-range-thumb{
+  background:var(--accent)!important;
+  box-shadow:0 0 0 4px rgba(198,40,53,.22)!important;
+}
+.price-card.is-featured,
+.price-card.is-selected{
+  border-color:var(--accent)!important;
+  box-shadow:inset 0 0 0 1px var(--accent)!important;
+}
+.price-card.is-featured:before{
+  background:var(--accent)!important;
+  color:#ffffff!important;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color:var(--accent)!important;
+  box-shadow:0 0 0 3px rgba(198,40,53,.16)!important;
+}
+.contact-star{
+  border-color:#e3b7ba!important;
+  color:var(--accent)!important;
+}
+.hero-line{background:var(--line)!important}
