@@ -457,3 +457,25 @@ body{background:#fff!important;color:var(--text)!important}
 .preview-hero{
   background:#edf2f5!important;
 }
+
+
+/* Uploaded RevenUX wordmark */
+.brand-wordmark{
+  display:inline-flex!important;
+  align-items:center;
+  width:190px;
+  height:52px;
+  overflow:hidden;
+}
+.brand-wordmark .brand-logo{
+  display:block;
+  width:190px;
+  height:auto;
+  max-height:52px;
+  object-fit:contain;
+  object-position:left center;
+}
+@media (max-width:760px){
+  .brand-wordmark{width:150px;height:44px}
+  .brand-wordmark .brand-logo{width:150px;max-height:44px}
+}
