@@ -174,3 +174,24 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
 } else {
   reveals.forEach((element) => element.classList.add("is-visible"));
 }
+
+
+/* Reliable form submission and true return-to-top behavior */
+document.getElementById("contact-form")?.addEventListener("submit", (event) => {
+  const form = event.currentTarget;
+  const email = form.querySelector('[name="email"]');
+  const replyTo = form.querySelector('[name="_replyto"]');
+  if (email && replyTo) replyTo.value = email.value.trim();
+});
+
+document.querySelectorAll('a.back-top[href="#top"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = reduceMotion ? "auto" : "smooth";
+    window.scrollTo({ top: 0, left: 0, behavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    if (window.location.hash) history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
+});
