@@ -889,3 +889,34 @@ body{background:#fff!important;color:var(--text)!important}
     margin:0!important;
   }
 }
+
+/* Refine pricing and editorial sections */
+.price-card{min-height:340px;cursor:pointer}
+.price-card .card-select{display:none!important}
+.price-card .card-price{margin-top:25px}
+.price-card.is-selected{border-color:var(--slate)!important;box-shadow:inset 0 0 0 1px var(--slate)!important}
+.price-card:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.chart-legend,.chart-box,.chart-foot{max-width:980px;margin-left:auto;margin-right:auto}
+.chart-box{height:230px;margin-top:12px}
+.chart-legend{margin-top:18px}
+.chart-foot{margin-top:2px}
+.founder-grid{align-items:start}
+.founder-card{min-height:0;justify-content:flex-start;padding:28px 18px 0}
+.founder-top{margin-bottom:25px}
+.founder-card h3{margin:0 0 8px}
+.founder-footer{margin-top:30px}
+.founder-note{padding:28px 0 0 36px;border-left:1px solid var(--line)}
+.detail-card{min-height:0;padding-block:28px}
+.detail-card h3{margin-top:0}
+.detail-card ul{margin-top:18px}
+.process-step{min-height:0;padding-block:28px 0}
+@media(max-width:720px){
+  .price-card{min-height:0}
+  .price-card .card-price{margin-top:0}
+  .chart-legend,.chart-box,.chart-foot{max-width:none}
+  .chart-box{height:185px}
+  .founder-card{padding:22px 0 0}
+  .founder-note{padding:28px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .detail-card{padding-block:22px}
+  .process-step{padding-block:22px 0}
+}

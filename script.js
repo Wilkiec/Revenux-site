@@ -77,7 +77,7 @@ function renderPriceCards() {
     card.dataset.planCard = String(index);
     const price = Math.round(plan.monthly * (1 - terms[selectedTerm].discount));
     const features = plan.features.map((feature) => `<li>${feature}</li>`).join("");
-    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} launch setup · care included</div><span class="card-select" aria-hidden="true">${index === selectedPlan ? "Selected" : "Choose tier"}<span>↗</span></span>`;
+    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} launch setup · care included</div>`;
     const select = () => {
       selectedPlan = index;
       renderPriceCards();
