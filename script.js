@@ -149,17 +149,13 @@ document.querySelectorAll("[data-year]").forEach((element) => { element.textCont
 
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-  if (plan !== null && plans[Number(plan)]) document.getElementById("plan").value = plans[Number(plan)].name;
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!contactForm.reportValidity()) return;
-    const data = new FormData(contactForm);
-    const subject = encodeURIComponent(`RevenUX UX website inquiry — ${data.get("business")}`);
-    const body = encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nBusiness: ${data.get("business")}\nPlan: ${data.get("plan")}\n\nProject details:\n${data.get("project") || "Not provided"}`);
-    document.getElementById("form-status").textContent = "Your email draft is ready. Review it and press Send in your email app.";
-    window.location.href = `mailto:hello@revenuxdesign.com?subject=${subject}&body=${body}`;
+  const sent = new URLSearchParams(window.location.search).get("sent");
+  const status = document.getElementById("form-status");
+  if (sent === "1" && status) {
+    status.textContent = "Thanks — your message was sent. We’ll be in touch soon.";
+  }
+  contactForm.addEventListener("submit", () => {
+    if (status) status.textContent = "Sending your message…";
   });
 }
 
