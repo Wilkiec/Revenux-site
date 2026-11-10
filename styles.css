@@ -1924,3 +1924,55 @@ html,body{
 .footer-bottom{
   border-color:rgba(255,255,255,.24)!important;
 }
+
+
+/* Lighter paper finish */
+:root{
+  --bg:#fdfbf7;
+  --bg-soft:#f7f1e5;
+  --panel:#fffefa;
+  --panel-hi:#ffffff;
+  --line:#e9e2d5;
+}
+html,body{
+  background:#fdfbf7!important;
+}
+.site-header{
+  background:rgba(253,251,247,.95)!important;
+  border-bottom-color:#e9e2d5!important;
+}
+.hero,.page-hero,.home-services,.service-detail,.process-section,.values-section,.about-section,.contact-section,.home-cta,.simple-cta,.pricing-section{
+  background:#fdfbf7!important;
+}
+.hero,.page-hero{
+  background:radial-gradient(ellipse 48% 66% at 83% 35%,rgba(198,40,53,.08),transparent 70%)!important;
+}
+.intro-strip,.term-panel,.pricing-control{
+  background:#f7f1e5!important;
+}
+.service-card,.detail-card,.founder-card,.founder-card-accent,.pricing-chart-wrap,.contact-form,.price-card{
+  background:#fffefa!important;
+  border-color:#e9e2d5!important;
+}
+.cta-panel{
+  background:linear-gradient(135deg,#fffefa,#faf6ed)!important;
+  border-color:#e9e2d5!important;
+}
+.site-preview{
+  background:#fffefa!important;
+  border-color:#ddd5c7!important;
+}
+.preview-top,.preview-stat-row{
+  background:#f7f1e5!important;
+}
+.preview-site{
+  background:#fffefa!important;
+}
+.term-switch{
+  background:#fffefa!important;
+  border-color:#e9e2d5!important;
+}
+.selected-tier select,.contact-form input,.contact-form select,.contact-form textarea{
+  background:#fffefa!important;
+  border-color:#e9e2d5!important;
+}
