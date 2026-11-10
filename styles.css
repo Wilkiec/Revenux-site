@@ -1539,3 +1539,41 @@ body{
 .site-preview > .preview-caption{background:var(--mock-ink)!important;color:var(--mock-paper)!important}
 .site-preview > .preview-caption .caption-mark{background:var(--mock-coral)!important;color:#ffffff!important}
 .site-preview > .preview-caption small,.site-preview > .preview-caption .caption-live{color:#c9d4c2!important}
+
+ 
+/* Mock company: pure white surface with a contained nature background */
+.preview-business{
+  --mock-paper:#ffffff;
+  --mock-line:#d7e1d2;
+  background:#ffffff!important;
+}
+.preview-business .preview-nav,
+.preview-business .preview-split-copy,
+.preview-business .preview-service-row,
+.preview-business .preview-footer-row{
+  background:#ffffff!important;
+}
+.preview-business .preview-nav{
+  border-bottom-color:#d7e1d2!important;
+}
+.preview-business .preview-hero{
+  background:linear-gradient(135deg,#f7fbf5 0%,#e4efdf 100%)!important;
+}
+.preview-editorial .preview-visual-block{
+  background:
+    radial-gradient(ellipse 34% 24% at 76% 18%,rgba(185,211,149,.8) 0 42%,transparent 44%),
+    radial-gradient(ellipse 42% 32% at 72% 68%,rgba(102,145,91,.72) 0 38%,transparent 40%),
+    radial-gradient(ellipse 22% 40% at 22% 48%,rgba(130,170,107,.38) 0 38%,transparent 40%),
+    linear-gradient(145deg,#2c6249 0%,#17372d 100%)!important;
+}
+.preview-editorial .preview-visual-block:before{
+  position:absolute;
+  right:16px;
+  top:34px;
+  width:90px;
+  height:150px;
+  border:1px solid rgba(233,242,223,.45);
+  border-radius:80% 20% 80% 20%;
+  transform:rotate(28deg);
+  content:"";
+}
