@@ -1699,3 +1699,228 @@ body{
 .preview-button:hover b{
   color:#ffffff!important;
 }
+
+
+/* Cream paper + Iron Man accent palette */
+:root{
+  color-scheme:light;
+  --bg:#fbf3df;
+  --bg-soft:#f3ead5;
+  --panel:#fffdf8;
+  --panel-hi:#ffffff;
+  --line:#e6dbc7;
+  --text:#111111;
+  --muted:#64717b;
+  --soft:#8a928f;
+  --accent:#c62835;
+  --accent-hi:#e0444e;
+  --green:#173c58;
+  --lime-soft:#edf2f5;
+}
+html,body{
+  background:#fbf3df!important;
+  color:#111111!important;
+}
+.site-header{
+  background:rgba(251,243,223,.94)!important;
+  border-bottom-color:#e6dbc7!important;
+  box-shadow:0 6px 24px rgba(23,60,88,.06)!important;
+}
+.primary-nav,.primary-nav>a:not(.nav-cta),.brand,.brand small{
+  color:#173c58!important;
+}
+.primary-nav>a:not(.nav-cta):hover,
+.primary-nav>a[aria-current=page]{
+  color:#173c58!important;
+  background:#f3ead5!important;
+}
+.hero,.page-hero,.home-services,.service-detail,.process-section,.values-section,.about-section,.contact-section,.home-cta,.simple-cta,.pricing-section{
+  background:#fbf3df!important;
+}
+.hero,.page-hero{
+  background:radial-gradient(ellipse 48% 66% at 83% 35%,rgba(198,40,53,.12),transparent 70%)!important;
+}
+.intro-strip{
+  background:#f3ead5!important;
+  border-block-color:#e6dbc7!important;
+}
+.strip-inner p,.heading-row>p,.hero-lede,.page-hero p,.service-card p,.detail-card p,.detail-card li,.process-step p,.pricing-intro p,.contact-copy>p,.founder-card p,.founder-note p,.values-copy p,.value-row p{
+  color:#64717b!important;
+}
+.eyebrow,.detail-number,.process-step>span,.value-row>span:first-child,.value-mark{
+  color:#c62835!important;
+}
+.hero h1 em,.page-hero h1 em,.section-heading h2 em,.contact-copy h1 em,.values-copy h2 em,.cta-panel h2 em{
+  color:#173c58!important;
+}
+.button-primary,.nav-cta{
+  background:#c62835!important;
+  border-color:#c62835!important;
+  color:#ffffff!important;
+  box-shadow:0 8px 24px rgba(198,40,53,.18)!important;
+}
+.button-primary span,.nav-cta span{
+  color:#ffffff!important;
+}
+.button-primary:hover,.button-primary:focus-visible,
+.nav-cta:hover,.nav-cta:focus-visible,
+.preview-call:hover,.preview-button:hover{
+  background:#173c58!important;
+  border-color:#173c58!important;
+  color:#ffffff!important;
+  box-shadow:0 8px 24px rgba(23,60,88,.18)!important;
+}
+.button-primary:hover span,.button-primary:focus-visible span,
+.nav-cta:hover span,.nav-cta:focus-visible span,
+.preview-button:hover b{
+  color:#ffffff!important;
+}
+.text-link:hover,.text-link span,.footer-links a:hover{
+  color:#c62835!important;
+}
+.service-card,.detail-card,.founder-card,.founder-card-accent,.term-panel,.pricing-control,.pricing-chart-wrap,.contact-form,.price-card{
+  border-color:#e6dbc7!important;
+  background:#fffdf8!important;
+  box-shadow:0 12px 36px rgba(23,60,88,.06)!important;
+}
+.service-card:hover,.detail-card:hover,.founder-card:hover,.price-card:hover{
+  border-color:#c62835!important;
+}
+.service-icon,.founder-initials,.caption-mark,.note-icon,.term-symbol{
+  border-color:#d7e1e9!important;
+  background:#edf2f5!important;
+  color:#173c58!important;
+}
+.cta-panel{
+  border-color:#e6dbc7!important;
+  background:linear-gradient(135deg,#fffdf8,#f7efdc)!important;
+  box-shadow:0 14px 40px rgba(23,60,88,.08)!important;
+}
+.cta-spark{
+  color:rgba(198,40,53,.2)!important;
+}
+.site-preview{
+  border-color:#d8cdbb!important;
+  background:#fffdf8!important;
+  box-shadow:0 24px 70px rgba(23,60,88,.15)!important;
+}
+.preview-top{
+  background:#f3ead5!important;
+  border-bottom-color:#e6dbc7!important;
+}
+.preview-url{
+  background:#fffdf8!important;
+  border-color:#e6dbc7!important;
+  color:#64717b!important;
+}
+.preview-site{
+  background:#fffdf8!important;
+  color:#111111!important;
+}
+.preview-call,.preview-button{
+  background:#c62835!important;
+  color:#ffffff!important;
+}
+.preview-logo b{
+  background:#173c58!important;
+  color:#ffffff!important;
+}
+.preview-button b{
+  color:#ffffff!important;
+}
+.preview-hero{
+  background:linear-gradient(115deg,#fffdf8 0%,#faf4e5 68%,#e8eef3 100%)!important;
+}
+.preview-hero h2 em,.preview-stat-row strong span{
+  color:#c62835!important;
+}
+.preview-stat-row{
+  background:#f3ead5!important;
+}
+.hero-line,.values-list,.process-grid,.process-step:not(:last-child),.process-step:nth-child(n+3),.detail-card ul,.card-feature-list,.founder-footer,.value-row,.footer-bottom{
+  border-color:#e6dbc7!important;
+}
+.term-panel,.pricing-control{
+  background:#f3ead5!important;
+}
+.term-switch{
+  border-color:#e6dbc7!important;
+  background:#fffdf8!important;
+}
+.term-button{
+  color:#64717b!important;
+}
+.term-button:hover,.term-button.is-active{
+  background:#c62835!important;
+  color:#ffffff!important;
+}
+.slider-step{
+  border-color:#d7e1e9!important;
+  background:#fffdf8!important;
+  color:#173c58!important;
+}
+.slider-step:hover{
+  border-color:#173c58!important;
+  background:#edf2f5!important;
+  color:#173c58!important;
+}
+#term-slider{
+  background:linear-gradient(90deg,#c62835 0 var(--slider-fill,0%),#d9e3e9 var(--slider-fill,0%) 100%)!important;
+}
+#term-slider::-webkit-slider-thumb{
+  background:#c62835!important;
+  box-shadow:0 0 0 4px rgba(198,40,53,.25)!important;
+}
+#term-slider::-moz-range-thumb{
+  background:#c62835!important;
+  box-shadow:0 0 0 4px rgba(198,40,53,.25)!important;
+}
+.price-card{
+  background:#fffdf8!important;
+}
+.price-card.is-featured,.price-card.is-selected{
+  border-color:#c62835!important;
+}
+.price-card.is-featured:before{
+  background:#c62835!important;
+  color:#ffffff!important;
+}
+.card-feature-list li:before,.chart-heading .field-label strong,.savings strong{
+  color:#173c58!important;
+}
+.card-select:hover,.price-card.is-selected .card-select{
+  border-color:#173c58!important;
+  background:#edf2f5!important;
+  color:#173c58!important;
+}
+.selected-tier select,.contact-form input,.contact-form select,.contact-form textarea{
+  border-color:#e6dbc7!important;
+  background:#fffdf8!important;
+  color:#111111!important;
+}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
+  border-color:#c62835!important;
+  box-shadow:0 0 0 3px rgba(198,40,53,.18)!important;
+}
+.contact-star{
+  border-color:#e7b7bb!important;
+  color:#c62835!important;
+}
+.site-footer{
+  background:#173c58!important;
+  color:#ffffff!important;
+  border-top-color:#173c58!important;
+}
+.site-footer .footer-links,
+.site-footer .back-top,
+.site-footer .footer-bottom,
+.site-footer>div>p{
+  color:#e7edf0!important;
+}
+.site-footer .footer-links a:hover,
+.site-footer .back-top span{
+  color:#e0444e!important;
+}
+.footer-bottom{
+  border-color:rgba(255,255,255,.24)!important;
+}
