@@ -330,3 +330,21 @@ body{background:#fff!important;color:var(--text)!important}
 .primary-nav>a:not(.nav-cta){border-bottom-color:var(--line)!important}
 .proof-avatars span{border-color:#fff!important;background:#e7edf1!important;color:var(--slate)!important}
 .proof-avatars span+span{background:var(--lime-soft)!important}
+
+
+/* Blue-gray ombre finish */
+.hero,.page-hero{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 42%,#edf2f5 72%,#aab9c5 91%,#46586a 100%)!important;
+}
+.home-cta,.simple-cta{
+  background:linear-gradient(180deg,#eef2f5 0%,#dfe7ec 62%,#9eafbc 88%,#46586a 100%)!important;
+}
+.hero-bottom{
+  color:rgba(255,255,255,.84)!important;
+}
+.hero-line{
+  background:rgba(255,255,255,.45)!important;
+}
+.hero-bottom .eyebrow,.hero-bottom span{
+  color:rgba(255,255,255,.84)!important;
+}
