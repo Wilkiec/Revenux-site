@@ -1591,3 +1591,91 @@ body{
 .hero .button-primary:focus-visible span{
   color:#ffffff!important;
 }
+
+
+/* Final black + blue cleanup */
+:root{
+  --accent:#173c58;
+  --accent-hi:#2e5b7a;
+  --green:#173c58;
+  --lime-soft:#eef3f7;
+}
+.hero,.page-hero{
+  background:radial-gradient(ellipse 45% 60% at 84% 36%,rgba(23,60,88,.13),transparent 70%)!important;
+}
+.eyebrow,.text-link span,.nav-cta span,.detail-number,.process-step>span,.value-row>span:first-child,.value-mark{
+  color:#173c58!important;
+}
+.hero h1 em,.page-hero h1 em,.section-heading h2 em,.contact-copy h1 em,.values-copy h2 em,.cta-panel h2 em{
+  color:#173c58!important;
+}
+.button-primary,.nav-cta{
+  background:#173c58!important;
+  border-color:#173c58!important;
+  color:#fff!important;
+}
+.button-primary span,.nav-cta span{
+  color:#fff!important;
+}
+.button-primary:hover,.button-primary:focus-visible,.nav-cta:hover{
+  background:#0e2a3f!important;
+  border-color:#0e2a3f!important;
+  color:#fff!important;
+}
+.text-link:hover,.footer-links a:hover{
+  color:#173c58!important;
+}
+.service-icon,.founder-initials,.caption-mark,.note-icon,.term-symbol{
+  border-color:#d7e1e9!important;
+  background:#f1f5f8!important;
+  color:#173c58!important;
+}
+.cta-panel{
+  background:linear-gradient(135deg,#fff,#f6f8fa)!important;
+}
+.cta-spark{
+  color:rgba(23,60,88,.18)!important;
+}
+.preview-hero{
+  background:linear-gradient(115deg,#fff 0%,#f7f9fb 68%,#e8eef3 100%)!important;
+}
+.preview-logo b,.preview-call,.preview-button{
+  background:#173c58!important;
+  color:#fff!important;
+}
+.preview-button b,.preview-hero h2 em,.preview-stat-row strong span{
+  color:#173c58!important;
+}
+.contact-star{
+  border-color:#d7e1e9!important;
+  color:#173c58!important;
+}
+.hero-grid{
+  align-items:center!important;
+  min-height:520px!important;
+}
+.hero-copy{
+  transform:translateY(-10px);
+}
+.hero-visual{
+  min-height:0!important;
+  transform:translateY(-10px);
+}
+.brand-wordmark{
+  width:220px!important;
+  height:60px!important;
+}
+.brand-wordmark .brand-logo{
+  width:220px!important;
+  max-height:60px!important;
+}
+@media(max-width:920px){
+  .brand-wordmark{width:190px!important;height:52px!important}
+  .brand-wordmark .brand-logo{width:190px!important;max-height:52px!important}
+}
+@media(max-width:720px){
+  .hero-grid{min-height:0!important}
+  .hero-copy,.hero-visual{transform:none}
+  .brand-wordmark{width:180px!important;height:48px!important}
+  .brand-wordmark .brand-logo{width:180px!important;max-height:48px!important}
+}
