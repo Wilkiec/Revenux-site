@@ -179,7 +179,7 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
 /* Reliable form submission and true return-to-top behavior */
 document.getElementById("contact-form")?.addEventListener("submit", (event) => {
   const form = event.currentTarget;
-  const email = form.querySelector('[name="email"]');
+  const email = form.querySelector('[name="client_email"]');
   const replyTo = form.querySelector('[name="_replyto"]');
   if (email && replyTo) replyTo.value = email.value.trim();
 });
