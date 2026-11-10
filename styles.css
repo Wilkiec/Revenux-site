@@ -374,3 +374,27 @@ body{background:#fff!important;color:var(--text)!important}
     #617484 100%
   )!important;
 }
+
+
+/* Final dark-blue ombre direction */
+.hero,.page-hero{
+  background:linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fafb 28%,
+    #e7edf1 48%,
+    #b8c5cf 66%,
+    #718596 82%,
+    #263f52 100%
+  )!important;
+}
+.home-cta,.simple-cta{
+  background:linear-gradient(
+    180deg,
+    #eef2f5 0%,
+    #dce5eb 28%,
+    #b0bfca 54%,
+    #718596 78%,
+    #263f52 100%
+  )!important;
+}
