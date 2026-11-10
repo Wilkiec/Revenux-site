@@ -1234,3 +1234,105 @@ body{
 .site-preview > .preview-caption .caption-live{
   color:#cbd2ef!important;
 }
+
+ 
+/* Process section redesign: open editorial steps, no clipped card shell */
+.process-section .section-heading{
+  margin-bottom:58px!important;
+}
+.process-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  border:0!important;
+  border-top:1px solid var(--line)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  background:transparent!important;
+}
+.process-step,
+.process-step:nth-child(even){
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  min-height:252px!important;
+  padding:28px 30px 34px 0!important;
+  border:0!important;
+  border-right:1px solid var(--line)!important;
+  background:transparent!important;
+}
+.process-step:not(:first-child){
+  padding-left:30px!important;
+}
+.process-step:last-child{
+  border-right:0!important;
+  padding-right:0!important;
+}
+.process-step>span{
+  display:block!important;
+  margin:0 0 42px!important;
+  color:var(--accent)!important;
+  font:700 11px/1 var(--mono)!important;
+  letter-spacing:.04em!important;
+}
+.process-step h3{
+  margin:0 0 10px!important;
+  color:var(--text)!important;
+  font:700 20px/1.15 var(--display)!important;
+  letter-spacing:-.55px!important;
+}
+.process-step p{
+  max-width:235px!important;
+  margin:0!important;
+  color:var(--muted)!important;
+  font-size:12px!important;
+  line-height:1.75!important;
+}
+@media(max-width:900px){
+  .process-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .process-step:nth-child(2){
+    border-right:0!important;
+  }
+  .process-step:nth-child(n+3){
+    border-top:1px solid var(--line)!important;
+  }
+  .process-step:nth-child(3){
+    padding-left:0!important;
+  }
+  .process-step:nth-child(4){
+    padding-left:30px!important;
+  }
+}
+@media(max-width:720px){
+  .process-section .section-heading{
+    margin-bottom:34px!important;
+  }
+  .process-grid{
+    grid-template-columns:1fr!important;
+  }
+  .process-step,
+  .process-step:nth-child(even),
+  .process-step:not(:first-child),
+  .process-step:nth-child(3),
+  .process-step:nth-child(4){
+    min-height:0!important;
+    padding:24px 0!important;
+    border:0!important;
+    border-top:1px solid var(--line)!important;
+  }
+  .process-step:first-child{
+    border-top:0!important;
+  }
+  .process-step>span{
+    margin-bottom:24px!important;
+  }
+  .process-step h3{
+    font-size:19px!important;
+  }
+  .process-step p{
+    max-width:31em!important;
+    font-size:12px!important;
+  }
+}
