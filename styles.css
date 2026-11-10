@@ -1489,3 +1489,53 @@ body{
     font-size:13px!important;
   }
 }
+
+ 
+/* Distinct client mockup: simple dark-green nature template */
+.preview-business{
+  --mock-ink:#17372d;
+  --mock-paper:#f5f3e9;
+  --mock-sage:#dce8d2;
+  --mock-coral:#b47a59;
+  --mock-line:#c9d4c2;
+  --mock-forest:#214c3a;
+  background:var(--mock-paper)!important;
+  color:var(--mock-ink)!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+}
+.site-preview .preview-dots i:first-child{background:#b47a59!important}
+.site-preview .preview-dots i:nth-child(2){background:#8fa878!important}
+.site-preview .preview-dots i:nth-child(3){background:#567f67!important}
+.preview-business .preview-nav{background:var(--mock-paper)!important;border-bottom-color:var(--mock-line)!important}
+.preview-business .preview-logo{color:var(--mock-ink)!important;font-family:Georgia,"Times New Roman",serif!important;font-size:10px!important;letter-spacing:.35px!important}
+.preview-business .preview-logo b{background:var(--mock-forest)!important;color:var(--mock-paper)!important;border-radius:50%!important}
+.preview-business .preview-logo small,.preview-business .preview-links{color:#71806f!important}
+.preview-business .preview-call{background:var(--mock-forest)!important;color:var(--mock-paper)!important}
+.preview-business .preview-hero{background:linear-gradient(135deg,#eef1e6 0%,var(--mock-sage) 100%)!important;color:var(--mock-ink)!important}
+.preview-business .preview-kicker{color:#71806f!important}
+.preview-business .preview-hero h2{color:var(--mock-ink)!important;font-family:Georgia,"Times New Roman",serif!important;font-weight:700!important;letter-spacing:-1.8px!important}
+.preview-business .preview-hero h2 em{color:var(--mock-coral)!important}
+.preview-business .preview-hero p{color:#5f7063!important;font-family:Arial,Helvetica,sans-serif!important}
+.preview-business .preview-button{background:var(--mock-forest)!important;color:var(--mock-paper)!important;font-family:Arial,Helvetica,sans-serif!important}
+.preview-business .preview-button b{color:#b9d395!important}
+.preview-business .preview-service-row,.preview-business .preview-footer-row{background:var(--mock-paper)!important;border-color:var(--mock-line)!important}
+.preview-business .preview-service-row>div{border-right-color:var(--mock-line)!important}
+.preview-business .preview-service-row strong{color:var(--mock-forest)!important;font-family:Georgia,"Times New Roman",serif!important}
+.preview-business .preview-service-row small,.preview-business .preview-footer-row{color:#71806f!important}
+.preview-editorial .preview-split-copy{background:var(--mock-paper)!important}
+.preview-editorial .preview-split-copy .preview-kicker{color:#71806f!important}
+.preview-editorial .preview-split-copy h2{color:var(--mock-ink)!important;font-family:Georgia,"Times New Roman",serif!important;font-weight:700!important;letter-spacing:-1.6px!important}
+.preview-editorial .preview-split-copy h2 em{color:var(--mock-coral)!important}
+.preview-editorial .preview-split-copy p{color:#5f7063!important;font-family:Arial,Helvetica,sans-serif!important}
+.preview-editorial .preview-split-copy .preview-button{background:var(--mock-forest)!important;color:var(--mock-paper)!important}
+.preview-editorial .preview-split-copy .preview-button b{color:#b9d395!important}
+.preview-editorial .preview-visual-block{background:var(--mock-forest)!important;color:var(--mock-paper)!important}
+.preview-editorial .preview-visual-block:after{border-color:rgba(220,232,210,.42)!important}
+.preview-editorial .preview-visual-number{color:#b9d395!important}
+.preview-editorial .preview-visual-block strong{color:var(--mock-paper)!important;font-family:Georgia,"Times New Roman",serif!important}
+.preview-editorial .preview-visual-caption{color:rgba(245,243,233,.72)!important}
+.preview-editorial .preview-footer-row span:last-child{color:var(--mock-ink)!important}
+.preview-editorial .preview-footer-row b{color:var(--mock-coral)!important}
+.site-preview > .preview-caption{background:var(--mock-ink)!important;color:var(--mock-paper)!important}
+.site-preview > .preview-caption .caption-mark{background:var(--mock-coral)!important;color:#ffffff!important}
+.site-preview > .preview-caption small,.site-preview > .preview-caption .caption-live{color:#c9d4c2!important}
