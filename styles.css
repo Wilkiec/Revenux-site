@@ -786,3 +786,106 @@ body{background:#fff!important;color:var(--text)!important}
   .term-readout span{font-size:8px}
   .term-button{font-size:7px}
 }
+
+/* Simplified visual hierarchy */
+.visual-orbit,
+.floating-note,
+.hero-proof{
+  display:none!important;
+}
+.site-preview{
+  box-shadow:none!important;
+}
+.service-grid,
+.detail-grid,
+.process-grid,
+.founder-grid{
+  gap:0;
+}
+.service-card,
+.detail-card,
+.process-step,
+.founder-card{
+  box-shadow:none!important;
+  border-radius:0;
+}
+.service-card{
+  border:0;
+  border-top:1px solid var(--line);
+  background:transparent!important;
+  padding-inline:4px;
+}
+.service-grid{border-bottom:1px solid var(--line)}
+.detail-card{
+  border-width:1px 0 0;
+  border-style:solid;
+  border-color:var(--line);
+  background:transparent!important;
+}
+.detail-grid{border-bottom:1px solid var(--line)}
+.process-step{
+  border:0;
+  border-top:1px solid var(--line);
+  background:transparent!important;
+}
+.process-grid{border-bottom:1px solid var(--line)}
+.founder-card{
+  border:0;
+  border-top:1px solid var(--line);
+  background:transparent!important;
+}
+.founder-grid{border-bottom:1px solid var(--line)}
+.price-card{
+  box-shadow:none!important;
+}
+.price-card:hover{transform:none}
+.cta-panel{box-shadow:none!important}
+@media(max-width:720px){
+  .service-card,
+  .detail-card,
+  .process-step{
+    padding-block:20px;
+  }
+  .founder-card{
+    min-height:0;
+    padding:20px 0;
+  }
+  .footer-main{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:start;
+    gap:22px 18px;
+  }
+  .footer-main>p{
+    grid-column:2;
+    grid-row:1;
+    margin:0!important;
+    text-align:right;
+  }
+  .footer-wordmark{
+    grid-column:1;
+    grid-row:1;
+  }
+  .footer-links{
+    grid-column:1/-1;
+    grid-row:2;
+    display:grid!important;
+    grid-template-columns:repeat(5,1fr);
+    gap:0!important;
+    width:100%!important;
+    margin:0!important;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.2);
+  }
+  .footer-links a{
+    text-align:center;
+    font-size:8px;
+  }
+  .back-top{
+    grid-column:1/-1;
+    grid-row:3;
+    justify-self:end;
+    width:auto!important;
+    margin:0!important;
+  }
+}
