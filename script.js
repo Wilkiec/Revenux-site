@@ -29,7 +29,7 @@ function renderChart() {
   const plotW = width - pad.left - pad.right, plotH = height - pad.top - pad.bottom;
   const baseEnd = costAtYear(plan, 0, 10), selectedEnd = costAtYear(plan, selectedTerm, 10);
   const max = chartMax;
-  const xCompression = 0.68; // Compress the time axis so cumulative cost differences read more clearly.
+  const xCompression = 0.76; // Compress the time axis so cumulative cost differences read more clearly.
   const compressedPlotW = plotW * xCompression;
   const x = (year) => pad.left + year / 10 * compressedPlotW;
   const y = (cost) => pad.top + plotH - cost / max * plotH;
@@ -39,7 +39,7 @@ function renderChart() {
     return `<g><line x1="${pad.left}" y1="${y(tick)}" x2="${x(10)}" y2="${y(tick)}" stroke="#d9e1e6"/><text x="${pad.left - 8}" y="${y(tick) + 3}" text-anchor="end" fill="#64737e" font-size="9" font-family="DM Mono, monospace">${tick === 0 ? "$0" : `$${Math.round(tick / 1000)}k`}</text></g>`;
   }).join("");
   const labels = Array.from({ length: 6 }, (_, i) => `<text x="${x(i * 2)}" y="${height - 5}" text-anchor="middle" fill="#858d82" font-size="9" font-family="DM Mono, monospace">${i * 2}</text>`).join("");
-  chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="presentation" aria-hidden="true"><defs><linearGradient id="chart-area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#c7f05a" stop-opacity=".16"/><stop offset="100%" stop-color="#f28c63" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${line(0)} L${x(10)},${height - pad.bottom} L${x(0)},${height - pad.bottom} Z" fill="url(#chart-area)"/><path d="${line(0)}" fill="none" stroke="#858b82" stroke-width="2" stroke-dasharray="5 5"/><path d="${line(selectedTerm)}" fill="none" stroke="#46586a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${labels}<circle cx="${x(10)}" cy="${y(selectedEnd)}" r="4" fill="#46586a" stroke="#ffffff" stroke-width="2"/></svg>`;
+  chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="presentation" aria-hidden="true"><defs><linearGradient id="chart-area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#c7f05a" stop-opacity=".16"/><stop offset="100%" stop-color="#f28c63" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${line(0)} L${x(10)},${height - pad.bottom} L${x(0)},${height - pad.bottom} Z" fill="url(#chart-area)"/><path d="${line(0)}" fill="none" stroke="#858b82" stroke-width="2" stroke-dasharray="5 5"/><path d="${line(selectedTerm)}" fill="none" stroke="#46586a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="${x(10)}" y1="${pad.top}" x2="${x(10)}" y2="${height - pad.bottom}" stroke="#cbd5dc" stroke-dasharray="3 4"/><text x="${x(10) + 8}" y="${Math.max(pad.top + 12, y(selectedEnd) - 8)}" fill="#46586a" font-size="9" font-family="DM Mono, monospace">${money(selectedEnd)}</text>${labels}<circle cx="${x(10)}" cy="${y(selectedEnd)}" r="4" fill="#46586a" stroke="#ffffff" stroke-width="2"/></svg>`;
   chart.setAttribute("aria-label", `10-year cumulative cost comparison for ${plan.name}. Selected term ${terms[selectedTerm].label}: ${money(selectedEnd)} including setup. One-year rate: ${money(baseEnd)} including setup.`);
   const savings = document.getElementById("savings-value");
   if (savings) savings.textContent = money(baseEnd - selectedEnd);
@@ -77,7 +77,7 @@ function renderPriceCards() {
     card.dataset.planCard = String(index);
     const price = Math.round(plan.monthly * (1 - terms[selectedTerm].discount));
     const features = plan.features.map((feature) => `<li>${feature}</li>`).join("");
-    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} launch setup · care included</div><span class="card-select" aria-hidden="true">${index === selectedPlan ? "Selected for graphic" : "Select this tier"}<span>↗</span></span>`;
+    card.innerHTML = `<span class="eyebrow">PLAN 0${index + 1}</span><h3>${plan.name}</h3><p class="card-pages">${plan.pages}</p><ul class="card-feature-list">${features}</ul><div class="card-price">${money(price)}<small> / month</small></div><div class="card-setup">${money(plan.setup)} launch setup · care included</div><span class="card-select" aria-hidden="true">${index === selectedPlan ? "Selected" : "Choose tier"}<span>↗</span></span>`;
     const select = () => {
       selectedPlan = index;
       renderPriceCards();
