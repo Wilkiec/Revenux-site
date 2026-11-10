@@ -479,3 +479,49 @@ body{background:#fff!important;color:var(--text)!important}
   .brand-wordmark{width:150px;height:44px}
   .brand-wordmark .brand-logo{width:150px;max-height:44px}
 }
+
+
+/* Refined homepage client-site mockup */
+.preview-business{background:#ffffff!important}
+.preview-business .preview-nav{background:#ffffff!important}
+.preview-business .preview-logo{color:var(--text)!important;letter-spacing:.7px}
+.preview-business .preview-logo small{color:var(--muted)!important}
+.preview-business .preview-links{color:var(--muted)!important}
+.preview-business .preview-hero{
+  background:#edf2f5!important;
+  min-height:236px;
+  padding:32px 28px 24px;
+}
+.preview-business .preview-hero h2{
+  font-weight:760!important;
+  letter-spacing:-2.4px!important;
+}
+.preview-business .preview-hero p{
+  max-width:190px;
+  color:#596773!important;
+}
+.preview-service-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  padding:15px 20px 16px;
+  background:#ffffff;
+  border-top:1px solid var(--line);
+}
+.preview-service-row>div{
+  padding-left:12px;
+  border-right:1px solid var(--line);
+}
+.preview-service-row>div:first-child{padding-left:0}
+.preview-service-row>div:last-child{border-right:0}
+.preview-service-row strong,
+.preview-service-row small{display:block}
+.preview-service-row strong{
+  color:var(--slate)!important;
+  font:750 16px var(--display);
+}
+.preview-service-row small{
+  margin-top:3px;
+  color:var(--muted)!important;
+  font:600 5px var(--sans);
+  letter-spacing:.35px;
+}
