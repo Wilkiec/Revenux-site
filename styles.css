@@ -525,3 +525,82 @@ body{background:#fff!important;color:var(--text)!important}
   font:600 5px var(--sans);
   letter-spacing:.35px;
 }
+
+
+/* Distinct client-site mockup palette and type */
+.preview-business{
+  --mock-ink:#263b35;
+  --mock-paper:#f7f1e8;
+  --mock-sage:#dce7df;
+  --mock-coral:#c96e4d;
+  --mock-line:#ded2c4;
+  background:var(--mock-paper)!important;
+  color:var(--mock-ink)!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+.preview-business .preview-nav{
+  background:var(--mock-paper)!important;
+  border-bottom-color:var(--mock-line)!important;
+}
+.preview-business .preview-logo{
+  color:var(--mock-ink)!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:9px!important;
+  letter-spacing:.4px!important;
+}
+.preview-business .preview-logo b{
+  background:var(--mock-coral)!important;
+  color:#fff!important;
+  border-radius:50%!important;
+}
+.preview-business .preview-logo small,
+.preview-business .preview-links{
+  color:#68766e!important;
+}
+.preview-business .preview-call{
+  background:var(--mock-ink)!important;
+  color:var(--mock-paper)!important;
+}
+.preview-business .preview-hero{
+  background:var(--mock-sage)!important;
+  color:var(--mock-ink)!important;
+}
+.preview-business .preview-kicker{
+  color:#6c7a71!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+.preview-business .preview-hero h2{
+  color:var(--mock-ink)!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-weight:700!important;
+  letter-spacing:-1.8px!important;
+}
+.preview-business .preview-hero h2 em{
+  color:var(--mock-coral)!important;
+}
+.preview-business .preview-hero p{
+  color:#5e6d64!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+.preview-business .preview-button{
+  background:var(--mock-coral)!important;
+  color:#fff!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+.preview-business .preview-button b{
+  color:#fff!important;
+}
+.preview-service-row{
+  background:var(--mock-paper)!important;
+  border-top-color:var(--mock-line)!important;
+}
+.preview-service-row>div{
+  border-right-color:var(--mock-line)!important;
+}
+.preview-service-row strong{
+  color:var(--mock-coral)!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+}
+.preview-service-row small{
+  color:#68766e!important;
+}
