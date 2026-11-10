@@ -1577,3 +1577,17 @@ body{
   transform:rotate(28deg);
   content:"";
 }
+
+ 
+/* Homepage CTA hover state */
+.hero .button-primary:hover,
+.hero .button-primary:focus-visible{
+  background:#173c58!important;
+  border-color:#173c58!important;
+  color:#ffffff!important;
+  box-shadow:0 8px 22px rgba(23,60,88,.22)!important;
+}
+.hero .button-primary:hover span,
+.hero .button-primary:focus-visible span{
+  color:#ffffff!important;
+}
