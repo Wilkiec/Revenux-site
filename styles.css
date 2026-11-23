@@ -1946,3 +1946,37 @@ body{
     border-top:0!important;
   }
 }
+
+/* Give existing clients a clear path into their private workspace. */
+.nav-portal{
+  display:inline-flex!important;
+  align-items:center;
+  gap:7px!important;
+  color:#173c58!important;
+  font-weight:700!important;
+  white-space:nowrap;
+}
+.nav-portal span{
+  color:#c62835!important;
+  font-size:14px;
+}
+.nav-portal:hover,
+.nav-portal:focus-visible{
+  background:transparent!important;
+  color:#c62835!important;
+}
+.nav-portal:hover span,
+.nav-portal:focus-visible span{
+  color:#173c58!important;
+}
+@media(max-width:720px){
+  .footer-links{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:14px 18px!important;
+  }
+}
+@media(max-width:430px){
+  .footer-links{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
